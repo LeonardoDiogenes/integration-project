@@ -9,8 +9,8 @@ module.exports = {
         email: 'john.doe@example.com',
         password: 'johnpassword',
         photo: 'https://example.com/john.jpg',
-        addressId: 1,
-        isAdmin: false,
+        address_id: 1,
+        is_admin: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -19,8 +19,8 @@ module.exports = {
         email: 'jane.smith@example.com',
         password: 'janepassword',
         photo: 'https://example.com/jane.jpg',
-        addressId: 2,
-        isAdmin: false,
+        address_id: 2,
+        is_admin: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -29,8 +29,8 @@ module.exports = {
         email: 'leo@example.com',
         password: '12345678',
         photo: 'https://example.com/leo.jpg',
-        addressId: 3,
-        isAdmin: true,
+        address_id: 3,
+        is_admin: true,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -39,8 +39,8 @@ module.exports = {
         email: 'alice.johnson@example.com',
         password: 'alicepassword',
         photo: 'https://example.com/alice.jpg',
-        addressId: 4,
-        isAdmin: false,
+        address_id: 4,
+        is_admin: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -49,8 +49,8 @@ module.exports = {
         email: 'bob.wilson@example.com',
         password: 'bobpassword',
         photo: 'https://example.com/bob.jpg',
-        addressId: 5,
-        isAdmin: false,
+        address_id: 5,
+        is_admin: false,
         createdAt: new Date(),
         updatedAt: new Date()
       }

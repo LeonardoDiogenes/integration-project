@@ -1,15 +1,20 @@
-const userServices = require('../services/User.service');
+const userService = require('../services/User.service');
 
 const getById = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  const user = userServices.getById(id);
-
-  if (!user) {
-    return res.status(404).json({ message: 'User not found' });
+    const user = await userService.getById(id);
+  
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+  
+    return res.status(200).json(user);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ message: 'Internal error' });
   }
-
-  return res.status(200).json(user);
 };
 
 module.exports = {

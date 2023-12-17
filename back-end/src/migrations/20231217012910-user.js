@@ -24,15 +24,17 @@ module.exports = {
       photo: {
         type: Sequelize.STRING
       },
-      addressId: {
+      address_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Addresses',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      isAdmin: {
+      is_admin: {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
