@@ -17,6 +17,24 @@ const getById = async (req, res) => {
   }
 };
 
+const createUser = async (req, res) => {
+  try {
+    const { name, email, password, address } = req.body;
+    
+    const user = await userService.createUser(name, email, password, address);
+
+    if (!user) {
+      return res.status(500).json({ message: 'Erro no service createUser' });
+    }
+
+    return res.status(201).json({ message: `Usuário ${user.name} criado com sucesso.` });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ message: 'Internal error' });
+  }
+}
+
 module.exports = {
   getById,
+  createUser,
 }
