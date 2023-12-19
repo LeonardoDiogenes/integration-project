@@ -1,14 +1,18 @@
+require('dotenv').config();
+
 const Sequelize = require('sequelize');
 const config = require('../config/config');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET, NODE_ENV } = process.env;
 
 const { User, Address } = require('../models');
 
-const env = process.env.NODE_ENV || 'development';
+const env = NODE_ENV;
 const sequelize = new Sequelize(config[env]);
 
 const getById = async (id) => {
   const user = await User.findOne({ where: { id },
-    attributes: { exclude: ['password', 'addressId'] },
+    attributes: { exclude: ['password', 'addressId', 'isAdmin'] },
     include: [{ model: Address, as: 'address' }] });
 
   return user;
@@ -18,8 +22,15 @@ const createUser = async (name, email, password, address) => {
   const { city, state, country } = address;
   const t = await sequelize.transaction();
   try {
-    const address = await Address.create({ city, state, country }, { transaction: t });
-    const addressId = address.id;
+    let addressId;
+    const findAddress = await Address.findOne({ where: { city, state, country } });
+    
+    if (findAddress) {
+      addressId = findAddress.id;
+    } else {
+      const address = await Address.create({ city, state, country }, { transaction: t });
+      addressId = address.id;
+    }
 
     const user = await User.create({ name, email, password, addressId }, { transaction: t });
 
@@ -33,7 +44,24 @@ const createUser = async (name, email, password, address) => {
   }
 };
 
+const login = async (email, password) => {
+  const findUser = await User.findOne({ where: { email, password }});
+
+  if (!findUser) return null;
+  
+  const payload = {
+    email: findUser.email,
+    password: findUser.password
+  }
+
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' });
+
+  return { token };
+
+};
+
 module.exports = {
   getById,
   createUser,
+  login,
 };

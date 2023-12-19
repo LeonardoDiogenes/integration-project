@@ -32,9 +32,27 @@ const createUser = async (req, res) => {
     console.log(error.message);
     return res.status(500).json({ message: 'Internal error' });
   }
+};
+
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const userToken = await userService.login(email, password);
+
+    if (!userToken) {
+      return res.status(401).json({ message: 'Incorrect username or password' });
+    }
+
+    return res.status(200).json(userToken);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ message: 'Internal error' });
+  }
 }
 
 module.exports = {
   getById,
   createUser,
+  login,
 }

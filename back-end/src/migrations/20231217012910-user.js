@@ -30,9 +30,7 @@ module.exports = {
         references: {
           model: 'Addresses',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        }
       },
       is_admin: {
         type: Sequelize.BOOLEAN,
