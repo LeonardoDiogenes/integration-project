@@ -1,11 +1,15 @@
 import './App.css'
+import Layout from './components/Layout'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
-    <div>
-      <h1>Integration Project</h1>
-    </div>
+    <Routes>
+      <Route path="" element={<Layout />} >
+        {/* <Route path="/profile" element={<Profile />}></Route> */}
+      </Route>
+    </Routes>
   )
 }
 
