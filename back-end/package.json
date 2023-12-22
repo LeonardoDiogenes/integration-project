@@ -1,0 +1,29 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoDiogenes/integration-project.git"
+  },
+  "author": "Leonardo Diógenes",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "9.0.0",
+    "mysql2": "2.1.0",
+    "sequelize": "6.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "sequelize-cli": "6.6.1"
+  }
+}
