@@ -3,7 +3,7 @@ function Footer() {
     <div className='footer'>
       <footer>
         <hr />
-        <p>test</p>
+        <p>Footer</p>
       </footer>
     </div>
   )

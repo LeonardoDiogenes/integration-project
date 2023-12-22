@@ -42,15 +42,32 @@ body {
   color: inherit;
 }
 
+footer {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 100px;
 }
 
 .footer hr {
   width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10em;
 }
