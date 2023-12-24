@@ -1,15 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import styles from '../css-modules/Header.module.css';
 
 function Header() {
   const navigate = useNavigate();
 
   return (
-<div className="header">
+<div className={ styles.header }>
   <header>
     <h1>Integration Project</h1>
-    <div className="nav-container">
+    <div className={ styles.navContainer }>
       <nav>
-        <ul className="nav-list">
+        <ul className={ styles.navList }>
           <li>
             <a href="#" onClick={() => navigate('/')}>Home</a>
           </li>
@@ -19,7 +20,7 @@ function Header() {
         </ul>
       </nav>
       <nav>
-        <ul className="nav-list">
+        <ul className={ styles.navList }>
           <li>
             <a href="#" onClick={() => navigate('/login')}>Login</a>
           </li>
